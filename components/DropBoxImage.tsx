@@ -4,7 +4,7 @@ import { deleteFile } from "actions/storageActions";
 import { queryClient } from "app/config/ReactQueryClientProvider";
 import { getImageUrl } from "utils/supabase/storage";
 
-export default function DropBoxImage({ image }) {
+export default function DropBoxImage({ image, index }) {
   const deleteFileMutation = useMutation({
     mutationFn: deleteFile,
     onSuccess: () => {
@@ -15,7 +15,13 @@ export default function DropBoxImage({ image }) {
   });
 
   return (
-    <figure className="relative w-full flex flex-col border border-gray-700 rounded-lg shadow-lg p-3 gap-2">
+    <figure
+      className="relative w-full flex flex-col border border-gray-700 rounded-lg shadow-lg p-3 gap-2
+        animate-fadeInUp"
+      style={{
+        animationDelay: `${index * 100}ms`,
+      }}
+    >
       <picture>
         <img
           src={getImageUrl(image.name)}

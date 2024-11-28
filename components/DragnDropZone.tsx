@@ -7,7 +7,7 @@ import { queryClient } from "app/config/ReactQueryClientProvider";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
-export default function DragnDropZone() {
+export default function DragnDropZone({ showAlways = false }) {
   const uploadImageMutation = useMutation({
     mutationFn: uploadFile,
     onSuccess: () => {
@@ -32,27 +32,19 @@ export default function DragnDropZone() {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     multiple: true,
+    noClick: !showAlways,
   });
 
   return (
-    <div
-      {...getRootProps()}
-      className="flex flex-col items-center justify-center w-full h-3/4 rounded-2xl py-24 border-2 border-dotted border-deep-purple-200 bg-gray-800 cursor-pointer"
-    >
+    <div {...getRootProps()} className="absolute inset-0">
       <input {...getInputProps()} />
-      {uploadImageMutation.isPending ? (
-        <LoaderCircle className="animate-spin h-6 w-6" />
-      ) : isDragActive ? (
-        <p className="font-bold text-gray-500">파일을 여기에 놓아주세요</p>
-      ) : (
-        <p className="font-bold text-gray-500">
-          파일을 여기에 끌어다 놓거나 클릭하여 업로드하세요.
-        </p>
+      {(isDragActive || showAlways) && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center w-full h-4/5 rounded-2xl border-2 border-dotted border-amber-700/50 bg-gray-800/50 cursor-pointer">
+          <p className="font-bold text-gray-500">
+            Drag and drop files here or click to upload
+          </p>
+        </div>
       )}
-      {/* @ts-ignore */}
-      {/* <Button loading={uploadImageMutation.isPending} type="submit">
-        파일 업로드
-      </Button> */}
     </div>
   );
 }

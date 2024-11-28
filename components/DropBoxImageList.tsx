@@ -13,11 +13,11 @@ export default function DropBoxImageList({ searchInput }) {
   });
 
   return (
-    <section className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-2">
+    <section className="grid tablet:grid-cols-3 desktop:grid-cols-4 grid-cols-2 gap-2">
       {searchImagesQuery.isLoading && <LoaderCircle />}
       {searchImagesQuery.data &&
-        searchImagesQuery.data.map((image) => (
-          <DropBoxImage key={image.id} image={image} />
+        searchImagesQuery.data.map((image, index) => (
+          <DropBoxImage key={image.id} image={image} index={index} />
         ))}
     </section>
   );

@@ -8,7 +8,7 @@ export default function GNB({ searchInput, setSearchInput }) {
       <Image
         src="/images/noteit_logo_white.svg"
         alt="logo"
-        width={100}
+        width={110}
         height={50}
       />
       <section className="flex items-center gap-3">
@@ -16,11 +16,11 @@ export default function GNB({ searchInput, setSearchInput }) {
           searchInput={searchInput}
           setSearchInput={setSearchInput}
         />
-        <button className="h-8 px-5 pt-1 font-semibold text-gray-300 text-base border border-amber-400 hover:bg-gray-800 transition-all rounded-3xl">
+        <button className="h-8 px-5 pt-1 font-semibold text-gray-300 text-base border border-amber-400 hover:bg-gray-800 transition-all duration-200 ease-in-out rounded-3xl">
           Login
         </button>
-        <button className="h-8 px-5 pt-1 font-semibold text-gray-800 text-base bg-amber-300 hover:bg-amber-200 transition-all rounded-3xl">
-          Sign in
+        <button className="h-8 px-5 pt-1 font-semibold text-gray-800 text-base bg-amber-300 hover:bg-amber-500 transition-all duration-200 ease-in-out rounded-3xl">
+          Sign Up
         </button>
       </section>
     </nav>
