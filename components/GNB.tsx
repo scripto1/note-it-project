@@ -12,12 +12,13 @@ export default function GNB({ searchInput, setSearchInput }) {
 
   return (
     <>
-      <nav className="flex h-16 px-10 mobile:px-3 items-center justify-between border-gray-700 border-b backdrop-blur-lg">
+      <nav className="flex h-16 mobile:h-12 px-10 mobile:px-3 items-center justify-between border-gray-700 border-b backdrop-blur-lg">
         <Image
           src="/images/noteit_logo_white.svg"
           alt="logo"
           width={110}
           height={50}
+          className="mobile:!w-[90px]"
         />
         <section className="flex items-center gap-3">
           <SearchComponent

@@ -24,7 +24,7 @@ export default function UI() {
       <GNB searchInput={searchInput} setSearchInput={setSearchInput} />
       <main className="flex">
         <SideMenu />
-        <section className="relative flex flex-col bg-gray-900 w-4/5 mobile:w-full mx-auto mt-10 items-center p-6 gap-4">
+        <section className="relative flex flex-col bg-gray-900 w-4/5 mobile:w-4/5 mx-auto mt-10 items-center p-6 gap-4">
           <DragnDropZone showAlways={!isDataAvailable && !isSearching} />
           <DropBoxImageList searchInput={searchInput} />
         </section>
