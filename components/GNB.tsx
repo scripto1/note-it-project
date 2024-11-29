@@ -12,7 +12,7 @@ export default function GNB({ searchInput, setSearchInput }) {
 
   return (
     <>
-      <nav className="flex h-16 px-10 items-center justify-between border-gray-700 border-b backdrop-blur-lg">
+      <nav className="flex h-16 px-10 mobile:px-3 items-center justify-between border-gray-700 border-b backdrop-blur-lg">
         <Image
           src="/images/noteit_logo_white.svg"
           alt="logo"
@@ -46,7 +46,7 @@ export default function GNB({ searchInput, setSearchInput }) {
         </section>
       </nav>
       {isMenuOpen ? (
-        <menu className="flex flex-col p-5 desktop:hidden tablet:hidden border-gray-700 border-b gap-2 transition-transform duration-300 ease-in-out animate-fadeInDown">
+        <menu className="flex flex-col py-3 px-2 desktop:hidden tablet:hidden border-gray-700 border-b gap-2 transition-transform duration-300 ease-in-out animate-fadeInDown">
           <li className="flex h-8 items-center hover:bg-gray-800 rounded-md cursor-pointer">
             <button className="pl-3 font-bold text-gray-300 text-lg ">
               Login
