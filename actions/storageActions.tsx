@@ -52,3 +52,13 @@ export async function deleteFile(fileName: string) {
 
   return data;
 }
+
+export async function getFile(fileName: string) {
+  const supabase = await createServerSupabaseClient();
+
+  const { data } = await supabase.storage
+    .from(process.env.NEXT_PUBLIC_STORAGE_BUCKET)
+    .getPublicUrl(fileName);
+
+  return data;
+}

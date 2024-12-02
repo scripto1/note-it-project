@@ -1,10 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import SearchComponent from "./SearchComponent";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useRecoilState } from "recoil";
+import { searchState } from "utils/recoil/atoms";
 
-export default function GNB({ searchInput, setSearchInput }) {
+export default function GNB() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [search, setSearch] = useRecoilState(searchState);
 
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -21,10 +26,7 @@ export default function GNB({ searchInput, setSearchInput }) {
           className="mobile:!w-[90px]"
         />
         <section className="flex items-center gap-3">
-          <SearchComponent
-            searchInput={searchInput}
-            setSearchInput={setSearchInput}
-          />
+          <SearchComponent searchInput={search} setSearchInput={setSearch} />
           <button className="h-8 px-5 pt-1 font-semibold text-gray-300 text-base border border-amber-400 hover:bg-gray-800 transition-all duration-200 ease-in-out rounded-3xl mobile:hidden">
             Login
           </button>

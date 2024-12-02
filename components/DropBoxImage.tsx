@@ -3,6 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { deleteFile } from "actions/storageActions";
 import { queryClient } from "app/config/ReactQueryClientProvider";
 import { getImageUrl } from "utils/supabase/storage";
+import Link from "next/link";
 
 export default function DropBoxImage({ image, index }) {
   const deleteFileMutation = useMutation({
@@ -23,11 +24,13 @@ export default function DropBoxImage({ image, index }) {
       }}
     >
       <picture>
-        <img
-          src={getImageUrl(image.name)}
-          alt={image.name}
-          className="w-full rounded-lg aspect-square object-cover"
-        />
+        <Link href={`/markup/${image.name}`}>
+          <img
+            src={getImageUrl(image.name)}
+            alt={image.name}
+            className="w-full rounded-lg aspect-square object-cover"
+          />
+        </Link>
       </picture>
       <figcaption className="text-white">{image.name}</figcaption>
       <X
