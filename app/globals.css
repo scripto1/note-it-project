@@ -37,3 +37,9 @@ body {
   animation: fadeInDown 0.3s ease-out forwards;
   opacity: 0;
 }
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}

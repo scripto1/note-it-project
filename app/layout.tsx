@@ -5,6 +5,7 @@ import { ThemeProvider } from "./config/material-tailwind-theme-provider";
 import ReactQueryClientProvider from "./config/ReactQueryClientProvider";
 import RecoilProvider from "./config/RecoilProvider";
 import GNB from "components/GNB";
+import SideMenu from "components/SideMenu";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -45,7 +46,10 @@ export default function RootLayout({
               className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
               <GNB />
-              {children}
+              <div className="flex">
+                <SideMenu />
+                {children}
+              </div>
             </body>
           </html>
         </ThemeProvider>

@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { searchFiles } from "actions/storageActions";
 import DragnDropZone from "components/DragnDropZone";
 import DropBoxImageList from "components/DropBoxImageList";
-import SideMenu from "components/SideMenu";
 import { useState } from "react";
 
 export default function UI() {
@@ -20,9 +19,8 @@ export default function UI() {
 
   return (
     <>
-      <main className="flex">
-        <SideMenu />
-        <section className="relative flex flex-col bg-gray-900 w-4/5 mobile:w-4/5 mx-auto mt-10 items-center p-6 gap-4">
+      <main>
+        <section className="relative flex flex-col bg-gray-900 w-11/12 mobile:w-full mx-auto mt-9 items-center p-7 gap-4">
           <DragnDropZone showAlways={!isDataAvailable && !isSearching} />
           <DropBoxImageList />
         </section>
