@@ -2,8 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { searchFiles } from "actions/storageActions";
-import DragnDropZone from "components/DragnDropZone";
-import DropBoxImageList from "components/DropBoxImageList";
+import { DragnDropZone } from "components/DragnDropZone";
+import { DropBoxImageList } from "components/DropBoxImageList";
 import { useState } from "react";
 
 export default function UI() {

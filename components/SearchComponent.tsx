@@ -2,7 +2,7 @@
 
 import { Search } from "lucide-react";
 
-export default function SearchComponent({ searchInput, setSearchInput }) {
+export function SearchComponent({ searchInput, setSearchInput }) {
   return (
     <>
       <section className="flex relative items-center">

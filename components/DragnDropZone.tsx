@@ -7,7 +7,7 @@ import { queryClient } from "app/config/ReactQueryClientProvider";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 
-export default function DragnDropZone({ showAlways = false }) {
+export function DragnDropZone({ showAlways = false }) {
   const uploadImageMutation = useMutation({
     mutationFn: uploadFile,
     onSuccess: () => {

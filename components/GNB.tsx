@@ -1,15 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import SearchComponent from "./SearchComponent";
+import { SearchComponent } from "./SearchComponent";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useRecoilState } from "recoil";
 import { searchState } from "utils/recoil/atoms";
-import LoginModal from "./LoginModal";
-import SignupModal from "./SignupModal";
+import { LoginModal } from "./LoginModal";
+import { SignupModal } from "./SignupModal";
 
-export default function GNB() {
+export function GNB() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [search, setSearch] = useRecoilState(searchState);
 

@@ -1,4 +1,4 @@
-import UI from "./ui";
+import { UI } from "./ui";
 
 export default async function Markup({ params }: { params: { id: string } }) {
   return (

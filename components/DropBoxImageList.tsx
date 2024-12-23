@@ -1,14 +1,14 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import DropBoxImage from "./DropBoxImage";
+import { DropBoxImage } from "./DropBoxImage";
 import { searchFiles } from "actions/storageActions";
 import { LoaderCircle } from "lucide-react";
-import DragnDropZone from "./DragnDropZone";
+import { DragnDropZone } from "./DragnDropZone";
 import { useRecoilValue } from "recoil";
 import { searchState } from "utils/recoil/atoms";
 
-export default function DropBoxImageList() {
+export function DropBoxImageList() {
   const search = useRecoilValue(searchState);
   const searchImagesQuery = useQuery({
     queryKey: ["images", search],

@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getFile } from "actions/storageActions";
 import { LoaderCircle } from "lucide-react";
 
-export default function UI({ id }: { id: string }) {
+export function UI({ id }: { id: string }) {
   const getUrlQuery = useQuery({
     queryKey: ["url", id],
     queryFn: () => getFile(id),

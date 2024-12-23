@@ -4,8 +4,10 @@ import "./globals.css";
 import { ThemeProvider } from "./config/material-tailwind-theme-provider";
 import ReactQueryClientProvider from "./config/ReactQueryClientProvider";
 import RecoilProvider from "./config/RecoilProvider";
-import GNB from "components/GNB";
-import SideMenu from "components/SideMenu";
+import { GNB } from "components/GNB";
+import { SideMenu } from "components/SideMenu";
+import { createServerSupabaseClient } from "utils/supabase/server";
+import AuthProvider from "./config/AuthProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,11 +25,16 @@ export const metadata: Metadata = {
   description: "a simple image markup site",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const supabase = await createServerSupabaseClient();
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
   return (
     <RecoilProvider>
       <ReactQueryClientProvider>
@@ -42,15 +49,17 @@ export default function RootLayout({
                 referrerPolicy="no-referrer"
               />
             </head>
-            <body
-              className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
-              <GNB />
-              <div className="flex">
-                <SideMenu />
-                {children}
-              </div>
-            </body>
+            <AuthProvider accessToken={session?.access_token}>
+              <body
+                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+              >
+                <GNB />
+                <div className="flex">
+                  <SideMenu />
+                  {children}
+                </div>
+              </body>
+            </AuthProvider>
           </html>
         </ThemeProvider>
       </ReactQueryClientProvider>

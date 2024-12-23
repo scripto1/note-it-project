@@ -5,7 +5,7 @@ import { queryClient } from "app/config/ReactQueryClientProvider";
 import { getImageUrl } from "utils/supabase/storage";
 import Link from "next/link";
 
-export default function DropBoxImage({ image, index }) {
+export function DropBoxImage({ image, index }) {
   const deleteFileMutation = useMutation({
     mutationFn: deleteFile,
     onSuccess: () => {

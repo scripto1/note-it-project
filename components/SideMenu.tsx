@@ -3,7 +3,7 @@ import { uploadFile } from "actions/storageActions";
 import { queryClient } from "app/config/ReactQueryClientProvider";
 import { Plus } from "lucide-react";
 
-export default function SideMenu() {
+export function SideMenu() {
   // const uploadImageMutation = useMutation({
   //   mutationFn: uploadFile,
   //   onSuccess: () => {
